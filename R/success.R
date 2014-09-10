@@ -1,6 +1,6 @@
 # Change this path to the working directory
-setwd("/Users/David/Downloads/Success.zip Folder/")
-mydata <- read.csv("Success-R.csv")
+setwd("/Users/David/Success/")
+mydata <- read.csv("data/successdata.csv")
 
 #The variables names after "~" come from the calculator input.
 mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=mydata, family=binomial)
