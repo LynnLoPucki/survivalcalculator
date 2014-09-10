@@ -1,5 +1,3 @@
-# Change this path to the working directory
-setwd("/Users/David/Success/")
 mydata <- read.csv("data/successdata.csv")
 
 #The variables names after "~" come from the calculator input.
