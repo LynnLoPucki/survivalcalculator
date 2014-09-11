@@ -1,6 +1,7 @@
 export(printsummary)
 export(hello)
 export(survival)
+export(survivalone)
 export(survivaltwo)
 export(survivalfour)
 export(survivaltwelve)
