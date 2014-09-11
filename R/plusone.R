@@ -1,4 +1,4 @@
 plusone <- function(inputnumber){
 	inputint <- as.integer(inputnumber)
-	inputint + 1
+	answer = inputint + 1
 }
