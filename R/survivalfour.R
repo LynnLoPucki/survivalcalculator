@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @param saleintended2. Optional.
-survivalfour <- function(saleintended2var = 1) {
+survivalfour <- function(saleintended2var = NaN, ebitbeforedummyvar = NaN, equitybeforevar = NaN,  manufacturingvar = NaN) {
 	# The variables names after "~" come from the calculator input.
 	mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
 	#	summary(mylogit)
@@ -24,5 +24,5 @@ survivalfour <- function(saleintended2var = 1) {
 	#	lfit # This is the lower bound
 	#	hfit # This is the upper bound
 
-	list( result = list(efit,hfit,lfit) )
+	list(efit=efit, hfit=hfit, lfit=lfit)
 }
