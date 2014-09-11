@@ -1,5 +1,6 @@
 export(printsummary)
 export(hello)
+export(plusone)
 export(survival)
 export(survivalone)
 export(survivaltwo)
