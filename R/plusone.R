@@ -1,3 +1,3 @@
 plusone <- function(inputnumber){
-	list(answer = inputnumber+1)
+	inputnumber + 1
 }
