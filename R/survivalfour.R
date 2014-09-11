@@ -24,5 +24,5 @@ survivalfour <- function(saleintended2var = 1) {
 	#	lfit # This is the lower bound
 	#	hfit # This is the upper bound
 
-	list( result = list(efit,hfit,lfit) )
+	return list( result = list(efit,hfit,lfit) )
 }
