@@ -9,8 +9,8 @@ survivalone <- function(saleintended2var = NaN) {
 	if (saleintended2var == NaN) {
 		stop("You must enter a value for at least one variable.")
 	} else {
-		mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
-		newdata1 <- with(successdata, data.frame(saleintended2=0, equitybefore=0, ebitbeforedummy=1, manufacturing=1))
+		mylogit <- glm(emerge ~ saleintended2, data=successdata, family=binomial)
+		newdata1 <- with(successdata, data.frame(saleintended2=0))
 	}
 	newdata2 <- predict(mylogit, newdata=newdata1, type="response", se.fit=TRUE)
 	efit = newdata2$fit
