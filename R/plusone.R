@@ -1,4 +1,4 @@
 plusone <- function(inputnumber){
 	inputint <- as.integer(inputnumber)
-	answer = inputint + 1
+	list(answer = inputint + 1)
 }
