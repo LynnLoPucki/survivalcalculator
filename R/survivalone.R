@@ -12,5 +12,5 @@ survivalone <- function(input) {
 	efit = newdata2$fit
 	lfit = efit - (newdata2$se.fit * 1.96)
 	hfit = efit + (newdata2$se.fit * 1.96)
-	list(efit=efit, hfit=hfit, lfit=lfit, stuff=names(inputdata))
+	list(efit=efit, hfit=hfit, lfit=lfit, stuff=inputdata)
 }
