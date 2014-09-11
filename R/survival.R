@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @param saleintended2. Optional.
-survival <- function() {
+survival <- function(saleintended2var = NaN) {
 
 	# The variables names after "~" come from the calculator input.
 	mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
