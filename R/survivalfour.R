@@ -4,25 +4,28 @@
 #' 
 #' @export
 #' @param saleintended2. Optional.
-survivalfour <- function(saleintended2var = NaN, ebitbeforedummyvar = NaN, equitybeforevar = NaN,  manufacturingvar = NaN) {
-	# The variables names after "~" come from the calculator input.
-	mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
-	#	summary(mylogit)
+survivalfour <- function(saleintended2var = NaN, ebitbeforedummyvar = NaN, equitybeforevar = NaN, manufacturingvar = NaN) {
 
-	# The values after "=" come from the calculator input.
-	newdata1 <- with(successdata, data.frame(saleintended2=0, equitybefore=0, ebitbeforedummy=1, manufacturing=1))
+	if (saleintended2var == NaN && ebitbeforedummyvar == NaN && equitybeforevar == NaN && manufacturingvar == NaN) {
+		stop("You must enter a value for at least one variable.")
+	} else if (saleintended2var == NaN && ebitbeforedummyvar == NaN && equitybeforevar == NaN && manufacturingvar == NaN) {
+		mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
+		newdata1 <- with(successdata, data.frame(saleintended2=saleintended2var, equitybefore=ebitbeforedummyvar, ebitbeforedummy=equitybeforevar, manufacturing=manufacturingvar))
+	} else if (saleintended2var == NaN && ebitbeforedummyvar == NaN && equitybeforevar == NaN && manufacturingvar == NaN) {
+		mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
+		newdata1 <- with(successdata, data.frame(saleintended2=saleintended2var, equitybefore=ebitbeforedummyvar, ebitbeforedummy=equitybeforevar, manufacturing=manufacturingvar))
+	} else if (saleintended2var == NaN && ebitbeforedummyvar == NaN && equitybeforevar == NaN && manufacturingvar == NaN) {
+		mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
+		newdata1 <- with(successdata, data.frame(saleintended2=saleintended2var, equitybefore=ebitbeforedummyvar, ebitbeforedummy=equitybeforevar, manufacturing=manufacturingvar))
+	} else if (saleintended2var == NaN && ebitbeforedummyvar == NaN && equitybeforevar == NaN && manufacturingvar == NaN) {
+		mylogit <- glm(emerge ~ saleintended2 + ebitbeforedummy + equitybefore +  manufacturing, data=successdata, family=binomial)
+		newdata1 <- with(successdata, data.frame(saleintended2=saleintended2var, equitybefore=ebitbeforedummyvar, ebitbeforedummy=equitybeforevar, manufacturing=manufacturingvar))
+	}
+
 	newdata2 <- predict(mylogit, newdata=newdata1, type="response", se.fit=TRUE)
-
-	# This is the predicted probability of Success
 	efit = newdata2$fit
-	# These are the 95% lower and upper confidence intervals of efit
 	lfit = efit - (newdata2$se.fit * 1.96)
 	hfit = efit + (newdata2$se.fit * 1.96)
-
-	# These are the values that should be returned to the user.
-	#	efit # This is the predicted value
-	#	lfit # This is the lower bound
-	#	hfit # This is the upper bound
 
 	list(efit=efit, hfit=hfit, lfit=lfit)
 }
