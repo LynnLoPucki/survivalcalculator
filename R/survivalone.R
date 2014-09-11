@@ -9,7 +9,7 @@ survivalone <- function(saleintended2var = "") {
 		stop("You must enter a value for at least one variable.")
 	}
 	mylogit <- glm(emerge ~ saleintended2, data=successdata, family=binomial)
-	newdata1 <- with(successdata, data.frame(saleintended2=1))
+	newdata1 <- with(successdata, data.frame(saleintended2=[[saleintended2var]]))
 	newdata2 <- predict(mylogit, newdata=newdata1, type="response", se.fit=TRUE)
 	efit = newdata2$fit
 	lfit = efit - (newdata2$se.fit * 1.96)
