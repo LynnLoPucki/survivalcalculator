@@ -6,7 +6,7 @@
 #' @param input. Required.
 survival <- function(inputformula, inputvalues) {
 	useformula <- as.formula(inputformula)
-	usevalues <- as.data.frame(lapply(inputvalues,as.factor))
+	usevalues <- as.data.frame(inputvalues, stringsAsFactors=FALSE)
 	mylogit <- glm(useformula, data=successdata, family=binomial)
 	newdata1 <- with(successdata, usevalues)
 	newdata2 <- predict(mylogit, newdata=newdata1, type="response", se.fit=TRUE)
