@@ -10,3 +10,4 @@ Description: This package calculates the probability that
 	a small set of inputs that are known before the case begins.
 License: Apache2
 LazyData: true
+
